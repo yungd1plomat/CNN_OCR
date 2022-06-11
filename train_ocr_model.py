@@ -13,7 +13,7 @@ import cv2
 
 matplotlib.use("Agg")
 
-EPOCHS = 50
+EPOCHS = 100
 INIT_LR = 1e-1
 BS = 128
 
