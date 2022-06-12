@@ -13,7 +13,6 @@ blurred = cv2.GaussianBlur(gray, (5, 5), 0)
 edged = cv2.Canny(blurred, 30, 150)
 cnts = cv2.findContours(edged.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 cnts = imutils.grab_contours(cnts)
-cv2.imshow('frame', cnts)
 cnts = sort_contours(cnts, method="left-to-right")[0]
 
 chars = []
