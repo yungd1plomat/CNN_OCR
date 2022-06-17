@@ -1,5 +1,4 @@
 from imutils import build_montages
-
 from helpers import load_mnist_dataset
 from helpers import load_az_dataset
 from keras.models import load_model
@@ -18,16 +17,16 @@ data = np.array(data, dtype="float32")
 data = np.expand_dims(data, axis=-1)
 data /= 255.0
 
-print("[INFO] loading data...")
+print("[INFO] Initializing data...")
 (trainX, testX, trainY, testY) = train_test_split(data, labels, test_size=0.20, stratify=labels, random_state=42)
 labelNames = "0123456789"
 labelNames += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 labelNames = [l for l in labelNames]
 
-print("[INFO] loading handwriting OCR model...")
+print("[INFO] Loading handwriting OCR model...")
 model = load_model('handwriting.model')
 
-print("[INFO] testing model...")
+print("[INFO] Testing model...")
 images = []
 for i in np.random.choice(np.arange(0, len(testY)), size=(49,)):
 	probs = model.predict(testX[np.newaxis, i])
